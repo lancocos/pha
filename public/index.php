@@ -8,8 +8,9 @@ define('APP_PATH', BASE_PATH . '/app');
 $di = new FactoryDefault();
 $config = new IniConfig(APP_PATH . "/config/config.ini");
 include APP_PATH . '/config/loader.php';
-include APP_PATH . '/config/services.php';
 include APP_PATH . '/config/router.php';
+include APP_PATH . '/config/services.php';
+
 try {
 
     $application = new \Phalcon\Mvc\Application($di);

@@ -7,9 +7,8 @@ use Phalcon\Mvc\View\Engine\Volt as VoltEngine;
 use Phalcon\Mvc\Model\Metadata\Memory as MetaDataAdapter;
 use Phalcon\Session\Adapter\Files as SessionAdapter;
 use Phalcon\Flash\Direct as Flash;
-
-
-
+use Phalcon\Mvc\Dispatcher;
+use Phalcon\Events\Manager as EventManager;
 /**
  * The URL component is used to generate all kind of urls in the application
  */
@@ -95,3 +94,15 @@ $di->setShared('session', function () {
 
     return $session;
 });
+/*
+$di->set('dispatcher1',function(){
+    $eventManager = new EventManager();
+    $eventManager->attach('dispatch:beforeExecuteRoute',new SecurityPlugin());
+    $eventManager->attach('dispatch:beforeException', new NotFoundPlugin());
+
+
+    $dispatcher = new Dispatcher();
+    $dispatcher->setEventsManager($eventManager);
+    return $dispatcher;
+});
+*/
