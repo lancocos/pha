@@ -1,3 +1,4 @@
 /cache/*
 /vendor/
 /app/config/config.int
+.idea/
