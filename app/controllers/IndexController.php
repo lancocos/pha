@@ -6,6 +6,7 @@ class IndexController extends ControllerBase
 
     public function indexAction()
     {
+        $this->view->disable();
         /*
         $good = Goods::findFirst(1);
         $good->name="ttdsad";
@@ -25,7 +26,7 @@ class IndexController extends ControllerBase
         //print_r($page);
         //$this->view->disable();
         //print_r($pagination);
-        //$this->view->disable();
+        $this->view->disable();
     }
 
 }

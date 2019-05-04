@@ -94,8 +94,8 @@ $di->setShared('session', function () {
 
     return $session;
 });
-/*
-$di->set('dispatcher1',function(){
+
+$di->set('dispatcher',function(){
     $eventManager = new EventManager();
     $eventManager->attach('dispatch:beforeExecuteRoute',new SecurityPlugin());
     $eventManager->attach('dispatch:beforeException', new NotFoundPlugin());
@@ -104,5 +104,5 @@ $di->set('dispatcher1',function(){
     $dispatcher = new Dispatcher();
     $dispatcher->setEventsManager($eventManager);
     return $dispatcher;
-});
-*/
+},true);
+

@@ -10,16 +10,18 @@ use Phalcon\Mvc\Dispatcher;
 use Phalcon\Events\Event;
 class SecurityPlugin extends Plugin
 {
-    public function beforeExcuteRoute(Event $event,Dispatcher $dispatcher){
+    public function beforeExecuteRoute(Event $event,Dispatcher $dispatcher){
         $auth =$this->session->get('auth');
-        print_r($auth);
-        //return false;
-        $dispatcher->forward(
-            [
-                "controller" => "index",
-                "action"     => "index",
-            ]
-        );
+        $controller = $dispatcher->getControllerName();
+        if(!$auth && $controller!= 'login'){
+            $dispatcher->forward(
+                [
+                    "controller" => "login",
+                    "action"     => "index",
+                ]
+            );
+            return false;
+        }
 
     }
 
