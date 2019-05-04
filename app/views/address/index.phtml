@@ -1,0 +1,13 @@
+<?php foreach ($page->items as $item) { ?>
+    <tr>
+        <td><?php echo $item->id; ?></td>
+        <td><?php echo $item->name; ?></td>
+    </tr>
+<?php } ?>
+
+<a href="/address">First</a>
+<a href="/address?page=<?= $page->before; ?>">Previous</a>
+<a href="/address?page=<?= $page->next; ?>">Next</a>
+<a href="/address?page=<?= $page->last; ?>">Last</a>
+
+<?php echo "You are in page ", $page->current, " of ", $page->total_pages; ?>

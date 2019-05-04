@@ -11,6 +11,7 @@ use Phalcon\Events\Event;
 class SecurityPlugin extends Plugin
 {
     public function beforeExecuteRoute(Event $event,Dispatcher $dispatcher){
+        /*
         $auth =$this->session->get('auth');
         $controller = $dispatcher->getControllerName();
         if(!$auth && $controller!= 'login'){
@@ -22,6 +23,7 @@ class SecurityPlugin extends Plugin
             );
             return false;
         }
+        */
 
     }
 

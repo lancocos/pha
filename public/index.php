@@ -4,9 +4,9 @@ use Phalcon\Config\Adapter\Ini as IniConfig;
 error_reporting(E_ALL);
 define('BASE_PATH', dirname(__DIR__));
 define('APP_PATH', BASE_PATH . '/app');
-
 $di = new FactoryDefault();
 $config = new IniConfig(APP_PATH . "/config/config.ini");
+
 include APP_PATH . '/config/loader.php';
 include APP_PATH . '/config/router.php';
 include APP_PATH . '/config/services.php';
