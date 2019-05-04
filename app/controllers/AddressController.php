@@ -53,6 +53,17 @@ class AddressController extends \Phalcon\Mvc\Controller
         $page = $paginator->getPaginate();
         $this->view->setVar('page',$page);
     }
+    public function page3Action(){
+        $currentPage = isset($_GET["page"])?(int) $_GET["page"]:1;
+        $paginator = new MyPaginator([
+            'data'=>[],
+            'limit'=>1,
+            'page'=>$currentPage,
+        ]);
+        $page = $paginator->getPaginate();
+        var_dump($page);
+        $this->view->disable();
+    }
 
 }
 
