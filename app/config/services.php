@@ -59,9 +59,23 @@ $di->setShared('db', function () use ($config) {
     if ($config->database->adapter == 'Postgresql') {
         unset($params['charset']);
     }
-
+    $manager = new \Phalcon\Events\Manager();
+    $profiler = new \Phalcon\Db\Profiler();
+    $manager->attach("db:beforeQuery",  function($event,$conn) use ($profiler){
+        $profiler->startProfile($conn->getSQLStatement());
+    });
+    $manager->attach("db:afterQuery",  function($event,$conn) use ($profiler){
+        $profiler->stopProfile();
+        $profile = $profiler->getLastProfile();
+        $sql = $profile->getSQLStatement();
+        $param = $conn->getSqlVariables();
+        $executeTime = $profile->getTotalElapsedSeconds();
+        (is_array($param) && count($param)) && $param = json_encode($param);
+        $logger = new Phalcon\Logger\Adapter\File(APP_PATH."/sqllog/sql-".date('Ymd').".txt");
+        $logger->log("[".$executeTime." ms ] ".$sql.$param);
+    });
     $connection = new $class($params);
-
+    $connection->setEventsManager($manager);
     return $connection;
 });
 

@@ -2,3 +2,4 @@
 /vendor/
 /app/config/config.ini
 .idea/
+/app/sqllog/*
