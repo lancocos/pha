@@ -119,4 +119,31 @@ $di->set('dispatcher',function(){
     $dispatcher->setEventsManager($eventManager);
     return $dispatcher;
 },true);
+$di->set('zbb',function(){
+    return new ZBB();
+});
+
+$di->set('zbb1',[
+    'className'=>ZBB::class,
+    "calls"     => [
+        [
+            "method"    => "setResponse",
+            "arguments" => [
+                [
+                    "type" => "service",
+                    "name" => "response",
+                ]
+            ]
+        ],
+        [
+            "method"    => "setFlag",
+            "arguments" => [
+                [
+                    "type"  => "parameter",
+                    "value" => true,
+                ]
+            ]
+        ]
+    ]
+]);
 

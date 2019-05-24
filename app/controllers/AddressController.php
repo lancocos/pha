@@ -8,6 +8,12 @@ class AddressController extends \Phalcon\Mvc\Controller
 
     public function indexAction()
     {
+
+        $this->zbb1->write();
+        echo $this->zbb1->read();
+
+        $this->view->disable();
+        exit;
         $currentPage = isset($_GET["page"])?(int) $_GET["page"]:1;
 
         //$data = CnArea::find();
@@ -23,6 +29,8 @@ class AddressController extends \Phalcon\Mvc\Controller
         $page = $paginator->getPaginate();
         //print_r($page);
         //$this->view->disable();
+        //var_dump($page);
+       // $this->view->disable();
         $this->view->setVar('page',$page);
     }
 

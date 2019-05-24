@@ -13,4 +13,7 @@ class ZBC
     {
         echo "zzz";
     }
+    public function fun1(){
+        echo __METHOD__;
+    }
 }
