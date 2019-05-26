@@ -29,5 +29,15 @@ class IndexController extends ControllerBase
         $this->view->disable();
     }
 
+    public function helloAction(){
+        $this->view->disable();
+        echo "<pre>";
+        print_r($this->tag->linkTo('a','n'));
+        $name = ($this->request->getQuery('name'));
+        echo $this->crypt->encrypt($name,'abc');
+        exit;
+        echo 11;
+    }
+
 }
 
