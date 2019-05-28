@@ -11,7 +11,7 @@ use Phalcon\Events\Event;
 class NotFoundPlugin extends Plugin
 {
     public function beforeException(Event $event,Dispatcher $dispatcher){
-        echo '222';
+
     }
 
 }

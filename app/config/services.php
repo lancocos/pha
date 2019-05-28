@@ -6,7 +6,8 @@ use Phalcon\Mvc\Url as UrlResolver;
 use Phalcon\Mvc\View\Engine\Volt as VoltEngine;
 use Phalcon\Mvc\Model\Metadata\Memory as MetaDataAdapter;
 use Phalcon\Session\Adapter\Files as SessionAdapter;
-use Phalcon\Flash\Direct as Flash;
+use Phalcon\Flash\Session as FlashSession;
+use Phalcon\Flash\Direct as FlashDirect;
 use Phalcon\Mvc\Dispatcher;
 use Phalcon\Events\Manager as EventManager;
 /**
@@ -91,7 +92,7 @@ $di->setShared('modelsMetadata', function () {
  * Register the session flash service with the Twitter Bootstrap classes
  */
 $di->set('flash', function () {
-    return new Flash([
+    return new FlashSession([
         'error'   => 'alert alert-danger',
         'success' => 'alert alert-success',
         'notice'  => 'alert alert-info',
@@ -124,7 +125,7 @@ $di->set('zbb',function(){
 });
 
 $di->set('zbb1',[
-    'className'=>ZBB::class,
+    'className'=>ZBA::class,
     "calls"     => [
         [
             "method"    => "setResponse",
@@ -140,7 +141,7 @@ $di->set('zbb1',[
             "arguments" => [
                 [
                     "type"  => "parameter",
-                    "value" => true,
+                    "value" => 0,
                 ]
             ]
         ]

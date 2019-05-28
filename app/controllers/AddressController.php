@@ -10,7 +10,7 @@ class AddressController extends \Phalcon\Mvc\Controller
     {
 
         $this->zbb1->write();
-        echo $this->zbb1->read();
+        $this->zbb1->read();
 
         $this->view->disable();
         exit;

@@ -5,6 +5,7 @@ $loader = new Loader();
 $loader->registerClasses([
     'ZBC'=>APP_PATH.'/C/ZBC.php',
     'ZBB'=>APP_PATH.'/C/ZBB.php',
+    'ZBA'=>APP_PATH.'/C/ZBA.php',
 ]);
 
 /**
