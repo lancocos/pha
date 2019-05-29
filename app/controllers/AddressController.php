@@ -71,6 +71,7 @@ class AddressController extends \Phalcon\Mvc\Controller
         $page = $paginator->getPaginate();
         var_dump($page);
         $this->view->disable();
+        
     }
 
 }

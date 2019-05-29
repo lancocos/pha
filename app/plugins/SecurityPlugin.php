@@ -73,6 +73,7 @@ class SecurityPlugin extends Plugin
                 'hello'=>['index','abc','db','find'],
                 //'index'=>['index'],
                 //'login'=>['index'],
+                'area'=>['index'],
             ];
 
             foreach ($publicResources as $resourceName => $actions) {
