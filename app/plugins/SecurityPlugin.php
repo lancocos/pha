@@ -74,6 +74,8 @@ class SecurityPlugin extends Plugin
                 //'index'=>['index'],
                 //'login'=>['index'],
                 'area'=>['index'],
+                'test'=>[],
+                'demo'=>[],
             ];
 
             foreach ($publicResources as $resourceName => $actions) {

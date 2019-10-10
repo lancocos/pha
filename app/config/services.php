@@ -124,6 +124,8 @@ $di->set('zbb',function(){
     return new ZBB();
 });
 
+$di->set('ui',HelloElement::class);
+
 $di->set('zbb1',[
     'className'=>ZBA::class,
     "calls"     => [

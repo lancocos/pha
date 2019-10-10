@@ -15,6 +15,7 @@ class AreaController extends ControllerBase
     public function searchAction(){
         if($this->request->isPost()){
             $query = Criteria::fromInput($this->di,'CnArea',$this->request->getPost());
+
             $this->persistent->param = $query->getParams();
         }else{
 
